@@ -7,6 +7,9 @@
         <input formControlName="password" class=" form-control m-4 shadow-none border-0" type="password" placeholder="New password">
         <input formControlName="rePassword" class=" form-control m-4 shadow-none border-0" type="password" placeholder="Confirm on new password">
         <br>
-        <button class="btn btn-primary m-auto d-block w-50">Reset Password </button>
+        <button class="btn btn-primary m-auto d-block w-50">
+            <div *ngIf="isLoading" ><i class="fa-solid fa-spinner fa-spin-pulse"></i></div>
+                <div *ngIf="!isLoading"><span>Sign Up</span></div>
+        </button>
     </form>
 </div>
