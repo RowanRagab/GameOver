@@ -1,0 +1,13 @@
+<div (click)="toggle()" class="userData d-flex justify-content-center align-items-center pointer position-relative">
+    <div class="text-warning text-center fs-5 pt-3">
+        <p>{{nameOfUser}}</p>
+    </div>
+        <img class=" w-50 ps-2 pe-3" src="../../../assets/imgs/user.png" alt="">
+    <i class="fa-solid fa-caret-down text-white "></i>
+</div>
+<div *ngIf="isToggle" class="text-white userDetails position-absolute rounded-2 text-center">
+    <img src="../../../assets/imgs/logo.png">
+    <h6 class="pt-2 fs-5">Hi {{nameOfUser}}</h6>
+    <p class="p-2">Do you need to <span class="pointer text-warning" routerLink="rigester/resetpass"
+            (click)="toggle()">Reset password <i class="fa-solid fa-lock-open"></i></span> </p>
+</div>

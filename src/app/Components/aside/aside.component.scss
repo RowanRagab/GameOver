@@ -1,0 +1,51 @@
+aside {
+    position: fixed;
+    z-index: 3;
+    width: 3rem;
+    height: 100vh;
+    transition: all .5s ease;
+    overflow-x: auto;
+    backdrop-filter: blur(4px);
+
+    &::-webkit-scrollbar {
+        width: 7px;
+        background: #575656;
+    }
+
+    &::-webkit-scrollbar {
+        width: 7px;
+        background: #575656;
+    }
+
+    a,
+    span {
+        text-overflow: ellipsis;
+    }
+
+    li {
+        transition: all .3s;
+        cursor: pointer;
+    }
+
+    li:hover,
+    .active {
+        border-left: 2px solid rgb(233, 230, 230) !important;
+        background-color: rgba(17, 97, 215, 0.841) !important;
+        border-top-right-radius: 15% !important;
+        border-bottom-right-radius: 15% !important;
+    }
+
+    .cate li a {
+        padding-left: 20px;
+    }
+
+    li a {
+        text-decoration: none;
+        color: white;
+    }
+
+}
+
+.sidenav-collabsed {
+    width: 15%;
+}

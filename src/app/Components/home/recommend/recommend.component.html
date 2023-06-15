@@ -1,0 +1,22 @@
+<app-loading-page *ngIf="isLoading"></app-loading-page>
+<div *ngIf="!isLoading">
+  <div class="contant p-3 shadow rounded-2">
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let game of allGames.slice(0,10) ">
+        <ng-template carouselSlide>
+          <div (click)="showError()" [routerLink]="['/gameDetails' , game.id]"
+            class="rec-games position-relative pointer">
+            <div class="imgs">
+              <img class="rounded-3 w-100" [src]="game.thumbnail">
+            </div>
+            <div
+              class="layout position-absolute top-0 end-0 bottom-0 flex-column start-0 rounded-3 d-flex justify-content-end align-items-start p-3">
+              <h5 class="fontColor">{{game.title}}</h5>
+              <h6 class="font2Color">{{game.genre}}</h6>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</div>

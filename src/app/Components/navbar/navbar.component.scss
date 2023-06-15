@@ -1,0 +1,61 @@
+
+nav{
+    background-color: rgba(10, 62, 139, 0.841);
+    .logo{
+        width: 15%;
+    }
+    .user{
+        width: 15%;
+    }
+    app-user-data{
+        width: 10%;
+    }
+    .icon1 , .icon2 , .icon3 {
+        color: rgb(170, 168, 168) ;
+        transition: all .3s;
+        
+    }
+    .icon1:hover , .icon2:hover , .icon3:hover {
+        color: white;
+    }
+    
+    .search{
+        transition: linear .3s;
+        background-color:rgba(28, 71, 136, 0.841);
+    }
+    input{
+        outline: none;
+        width: 80%;
+    }
+    input:focus{
+        color: white;
+    }
+
+
+}
+.searchArr{
+    width: 35%;
+    position: absolute;
+    left: 20%;
+    background: #7979799a;
+    backdrop-filter: blur(4px);
+    z-index: 10;
+    max-height: 50%;
+    overflow-y: auto;
+    overflow-x: auto;
+    p , h6{
+        text-overflow: ellipsis;
+    }
+    &::-webkit-scrollbar{
+        width: 7px;
+        background: #575656;
+    }
+    &::-webkit-scrollbar-thumb{
+        background: #c1bdbd;
+        border-radius: 20px;
+    }
+    .searchInner{
+        background: rgba(48, 123, 235, 0.841);
+        backdrop-filter: blur(4px);
+    }
+}

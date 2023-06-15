@@ -1,0 +1,18 @@
+.userData{
+width: 100%;
+margin-left: auto;
+    img{
+width: 90%;
+    }
+}
+.userDetails{
+    width: 20%;
+    height: auto;
+    background:#9b9fe5a7;
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    transition: all .5s ease;
+    img{
+        width: 25%;
+    }
+}

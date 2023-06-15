@@ -1,0 +1,38 @@
+<div class="container rounded-4 shadow">
+    <div class="row text-center">
+        <div class="col-md-6">
+            <img class="w-100 h-100 rounded-4" src="../../../assets/imgs/gaming.ebaf2ffc84f4451d.jpg" alt="">
+        </div>
+        <div class="login rounded-4 col-md-6 p-5">
+            <div>
+                <img class="w-25" src="../../../assets/imgs/logo.png" alt="">
+                <h3 class="font2Color mb-5">Log In To Game Over</h3>
+            </div>
+            <form [formGroup]="loginForm" (submit)="login(loginForm)">
+                <p *ngIf="errMsg != ''" class="text-danger"><i class="fa-solid fa-circle-exclamation"></i>  {{errMsg}}</p>
+                <input formControlName="email" class="form-control border-0" type="email" name="email" id="email" placeholder="Enter your email">
+                <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched" class="errors text-danger">
+                    <p *ngIf="loginForm.get('email')?.getError('required')"><i class="fa-solid fa-circle-exclamation"></i> email is required</p>
+                    <p *ngIf="loginForm.get('email')?.getError('email')"><i class="fa-solid fa-circle-exclamation"></i> Enter valid email, Check @</p>
+                </div>
+                <br>
+                <input formControlName="password" class="form-control border-0" type="password" name="password" id="password" placeholder="Enter your password">
+                <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched" class="errors text-danger">
+                    <p *ngIf="loginForm.get('password')?.getError('required')"><i class="fa-solid fa-circle-exclamation"></i> password is required</p>
+                    <p *ngIf="loginForm.get('password')?.getError('minlength')"><i class="fa-solid fa-circle-exclamation"></i> password must be more than 6 caracters</p>
+                    <p *ngIf="loginForm.get('password')?.getError('maxlength')"><i class="fa-solid fa-circle-exclamation"></i> password must be less than 20 caracters</p>
+                </div>
+                <br>
+                <button [disabled]="loginForm.invalid" class="btn btn-primary w-100">
+                    <div *ngIf="isLoading"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div>
+                    <div *ngIf="!isLoading"><span >LogIn</span></div>
+                </button>
+                <div class="pt-4 font2Color">
+                    <p class="text-primary pointer">Forgot Password?</p>
+                    <p>Not A member Yet? <span routerLink="../signup" class="text-primary pointer"> Sign Up </span></p>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

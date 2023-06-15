@@ -1,0 +1,12 @@
+<div class="content">
+    <img class="w-25 d-block m-auto" src="../../../assets/imgs/logo.png" alt="">
+    <h3 class="font2Color text-center">Do You Need New Password ?</h3>
+    <div class="alert-danger m-auto alert text-center" *ngIf="errMsg != '' ">{{errMsg}} </div>
+    <form [formGroup]="resetForm" (submit)="resetPass(resetForm)" class="container">
+        <input formControlName="currentPassword" class=" form-control m-4 shadow-none border-0" type="password" placeholder="Current password">
+        <input formControlName="password" class=" form-control m-4 shadow-none border-0" type="password" placeholder="New password">
+        <input formControlName="rePassword" class=" form-control m-4 shadow-none border-0" type="password" placeholder="Confirm on new password">
+        <br>
+        <button class="btn btn-primary m-auto d-block w-50">Reset Password </button>
+    </form>
+</div>

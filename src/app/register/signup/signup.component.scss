@@ -1,0 +1,15 @@
+.container{
+    margin-top: 5%;
+    .signup{
+        background:rgb(81,81,81);
+    }
+    input{
+        background:rgb(108, 108, 108);
+        &:focus{
+            color: rgb(240, 248, 255);
+        }
+        &::placeholder{
+            color:rgb(170, 168, 168);
+        }
+    }
+}

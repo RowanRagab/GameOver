@@ -1,1 +1,66 @@
-/* You can add global styles to this file, and also import other style files */
+// fonts and toastr
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap');
+@import 'ngx-toastr/toastr';
+
+/* Variables */
+$mainColor: rgba(17, 97, 215, 0.841);
+$secColor: rgb(60, 62, 66);
+$fontColor: rgb(254, 252, 252);
+$font2Color: rgb(170, 168, 168);
+// all app
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: $secColor;
+    $mainColor: rgba(17, 97, 215, 0.841);
+    $secColor: rgb(60, 62, 66);
+    $fontColor: rgb(254, 252, 252);
+    $font2Color: rgb(170, 168, 168);
+}
+
+.logoFont {
+    font-family: 'Rubik Puddles', cursive;
+}
+
+// fonts
+.fontColor {
+    color: $fontColor;
+}
+
+.font2Color {
+    color: $font2Color
+}
+
+// backgrounds 
+.mainBg {
+    background-color: $mainColor;
+}
+
+.secBg {
+    background-color: $secColor;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.margin {
+    margin-left: 15%;
+}
+
+// games Card
+
+.allcontant {
+    transition: all 0.3s;
+
+    &:hover {
+        transform: scale(1.1);
+        color: rgb(13, 110, 253) !important;
+        font-size: large;
+    }
+
+    .contant {
+        background: rgb(81, 81, 81);
+    }
+
+}

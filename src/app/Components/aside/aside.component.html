@@ -1,0 +1,72 @@
+<!-- aside bar to show menu -->
+<aside class="text-white mainBg" [ngClass]="collapsed ? 'sidenav-collabsed' :''">
+    <!-- logo and toggle menu icons  -->
+    <div class="logo-container w-100 d-flex">
+        <button class="logo btn text-white m-auto" (click)="toggleCollapse()"><i
+                class="fa-solid fa-bars fa-lg"></i></button>
+        <div class="logo-text text-center m-auto h2 logoFont" *ngIf="collapsed">Game Over</div>
+        <button class="btn" *ngIf="collapsed" (click)="closeSideNave()">
+            <i class="fa-solid fa-xmark fa-lg text-white"></i>
+        </button>
+    </div>
+    <!-- menu content -->
+    <ul class="sidenav d-flex flex-column list-unstyled fontColor">
+        <!-- li > all games & home page -->
+        <li (click)="showError()" routerLinkActive="active" [routerLink]="data.routerlink" class="sidenavItems p-2"
+            *ngFor="let data of asideData">
+            <a class="sidenavLink">
+                <i class="text-white fa-lg" [class]="data.icon"></i>
+                <span class="align-content-center ps-2" *ngIf="collapsed">{{data.label}}</span>
+            </a>
+        </li>
+        <!-- li > platForm for pc -->
+        <li *ngIf="isLogin" (click)="showError()" routerLinkActive="active" [routerLink]="['platform', 'pc']"
+            class="p-2 sidenavItems">
+            <a class="sidenavLink">
+                <i class="fa-regular fa-window-restore text-white fa-lg"></i>
+                <span class="ps-2" *ngIf="collapsed">PC</span>
+            </a>
+        </li>
+        <!-- li > platForm for browser -->
+        <li *ngIf="isLogin" (click)="showError()" routerLinkActive="active" [routerLink]="['platform', 'browser']"
+            class="p-2 sidenavItems">
+            <a class="sidenavLink">
+                <i class="fa-solid fa-desktop text-white fa-lg"></i>
+                <span class=" ps-2" *ngIf="collapsed">Browser</span>
+            </a>
+        </li>
+        <!-- CATEGORIES -->
+        <li *ngIf="isLogin" (click)="showError() ;opensideNave()" class="nav-item dropdown p-2">
+            <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-sitemap fa-lg"></i>
+                <span class=" ps-2" *ngIf="collapsed">Categories</span>
+            </a>
+            <ul class="cate dropdown-menu border-0 lh-lg bg-transparent position-relative mb-3">
+                <li routerLinkActive="active" [routerLink]="['/category' , 'racing']"><a>racing</a></li>
+                <li routerLinkActive="active" [routerLink]="['/category' , 'shooter']"><a>shooter</a></li>
+                <li routerLinkActive="active" [routerLink]="['/category' , 'sports']"><a>sports</a></li>
+                <li routerLinkActive="active" [routerLink]="['/category' , 'social']"><a>social</a></li>
+                <li routerLinkActive="active" [routerLink]="['/category' , 'open-world']"><a>open-world</a></li>
+                <li routerLinkActive="active" [routerLink]="['/category' , 'zombie']"><a>zombie</a></li>
+                <li routerLinkActive="active" [routerLink]="['/category' , 'fantasy']"><a>fantasy</a></li>
+                <li routerLinkActive="active" [routerLink]="['/category' , 'action-rpg']"><a>action-rpg</a></li>
+                <li routerLinkActive="active" [routerLink]="['/category' , 'flight']"><a>flight</a></li>
+                <li routerLinkActive="active" [routerLink]="['/category' , 'action']"><a>action</a></li>
+                <li routerLinkActive="active" [routerLink]="['/category' , 'battle-royale']"><a>battle-royale</a></li>
+            </ul>
+        </li>
+        <!-- SORT BY .. -->
+        <li *ngIf="isLogin" (click)="showError() ;opensideNave()" class="nav-item dropdown p-2">
+            <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-arrow-down-short-wide fa-lg"></i>
+                <span class=" ps-2" *ngIf="collapsed">Sort By</span>
+            </a>
+            <ul class="cate dropdown-menu border-0 lh-lg bg-transparent position-relative ">
+                <li routerLinkActive="active" [routerLink]="['/sortby' , 'release-date']"><a>release-date</a></li>
+                <li routerLinkActive="active" [routerLink]="['/sortby' , 'popularity']"><a>popularity</a></li>
+                <li routerLinkActive="active" [routerLink]="['/sortby' , 'alphabetical']"><a>alphabetical</a></li>
+                <li routerLinkActive="active" [routerLink]="['/sortby' , 'relevance']"><a>relevance</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>

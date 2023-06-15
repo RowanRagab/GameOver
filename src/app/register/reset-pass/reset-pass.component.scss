@@ -1,0 +1,15 @@
+.content{
+    background-image: url(../../../assets/imgs/paladins.b44d33d6e7ee1ba8.png);
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+}
+input{
+background: #595858;
+&::placeholder{
+    color: rgb(209, 208, 208);
+}
+&:focus{
+    background-color: #494949;
+}
+}

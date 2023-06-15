@@ -1,0 +1,68 @@
+<div class="container rounded-4 shadow">
+    <div class="row text-center">
+        <div class="col-md-6">
+            <img class="w-100 h-100 rounded-4" src="../../../assets/imgs/gaming.ebaf2ffc84f4451d.jpg" alt="">
+        </div>
+        <div class="signup rounded-4 col-md-6 p-5">
+            <div>
+                <img class="w-25" src="../../../assets/imgs/logo.png" alt="">
+                <h3 class="font2Color mb-5">Join Us Now </h3>
+            </div>
+            <form [formGroup]="registerForm" (submit)="register(registerForm)">
+                <p *ngIf="errMessage != ''" class="text-danger"><i class="fa-solid fa-circle-exclamation"></i>  {{errMessage}}</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <input formControlName="name" class="form-control border-0" type="text" name="name" id="name" placeholder="First name" >
+                        <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched" class="errors text-danger">
+                            <p *ngIf="registerForm.get('name')?.getError('required')"><i class="fa-solid fa-circle-exclamation"></i> Name is required</p>
+                            <p *ngIf="registerForm.get('name')?.getError('minlength')"><i class="fa-solid fa-circle-exclamation"></i> Name must be more than 3 caracters</p>
+                            <p *ngIf="registerForm.get('name')?.getError('maxlength')"><i class="fa-solid fa-circle-exclamation"></i> Name must be less than 10 caracters</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control border-0" type="text" name="name" id="name" placeholder="Last name"required>
+                    </div>
+                </div>
+                <br>
+                <input formControlName="email" class="form-control border-0" type="email" name="email" id="email" placeholder="E-mail">
+                <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="errors text-danger">
+                    <p *ngIf="registerForm.get('email')?.getError('required')"><i class="fa-solid fa-circle-exclamation"></i> email is required</p>
+                    <p *ngIf="registerForm.get('email')?.getError('email')"><i class="fa-solid fa-circle-exclamation"></i> Enter valid email, Check @</p>
+                </div>
+                <br>
+                <div class="row">
+                <div class="col-md-6">
+                    <input formControlName="password" class="form-control border-0" type="password" name="password" id="password" placeholder="Password">
+                    <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="errors text-danger">
+                        <p *ngIf="registerForm.get('password')?.getError('required')"><i class="fa-solid fa-circle-exclamation"></i> password is required</p>
+                        <p *ngIf="registerForm.get('password')?.getError('minlength')"><i class="fa-solid fa-circle-exclamation"></i> password must be more than 6 caracters</p>
+                        <p *ngIf="registerForm.get('password')?.getError('maxlength')"><i class="fa-solid fa-circle-exclamation"></i> password must be less than 20 caracters</p>
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+                    <input formControlName="rePassword" class="form-control border-0" type="password" name="password" id="rePassword" placeholder="Re-Password">
+                    <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched" class="errors text-danger">
+                         <p *ngIf="registerForm.get('rePassword')?.getError('passwordmatch')"><i class="fa-solid fa-circle-exclamation"></i> rePassword doesn't match password</p>
+                    </div>
+                </div>
+               </div>
+                <br>
+                <input formControlName="phone" class="form-control border-0" type="tel" name="phone" id="phone" placeholder="Phone">
+                <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched" class="errors text-danger">
+                    <p *ngIf="registerForm.get('phone')?.getError('required')"><i class="fa-solid fa-circle-exclamation"></i> phone is required</p>
+                    <p *ngIf="registerForm.get('phone')?.getError('pattern')"><i class="fa-solid fa-circle-exclamation"></i> Enter phone number in egyption way</p>
+                </div>
+                <br>
+                <button [disabled]="registerForm.invalid" class="btn btn-primary w-100">
+                    <div *ngIf="isLoading" ><i class="fa-solid fa-spinner fa-spin-pulse"></i></div>
+                    <div *ngIf="!isLoading"><span>Sign Up</span></div>
+                </button>
+                <div class="pt-4 font2Color">
+                    <p>You have Account Already? <span routerLink="../login" class="text-primary pointer">LogIn </span>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+</div>

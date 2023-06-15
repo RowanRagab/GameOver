@@ -1,0 +1,37 @@
+<!-- nav bar content -->
+<nav class="p-3 d-flex end-0 start-0 align-items-center ">
+    <!-- nav search -->
+    <div class="search text-center w-25 rounded-4 m-auto">
+        <input [(ngModel)]="searchTerm" type="text" class=" rounded-5 border-0 bg-transparent" placeholder="  Search">
+        <i class="fa-solid fa-magnifying-glass font2Color"></i>
+    </div>
+    <!-- nav logs -->
+    <div class="user d-flex align-items-center justify-content-center">
+        <button *ngIf="!isLogin" routerLink="rigester/signup" class="btn btn-outline-primary">Join Us</button>
+        <button *ngIf="!isLogin" routerLink="rigester/login" class="btn font2Color ms-3">Log In</button>
+        <button *ngIf="isLogin" (click)="logOut()" class="btn font2Color ms-3">Log Out </button>
+    </div>
+    <!-- nav user -->
+    <app-user-data *ngIf="isLogin" class="ms-5"></app-user-data>
+    <!-- nav logo -->
+    <div routerLink="home" class="logo  m-end text-center ms-auto pointer">
+        <img src="../../../assets/imgs/logo.png" class="w-25" alt="">
+        <span class="logoFont text-white">Game Over</span>
+    </div>
+</nav>
+<!-- search menu (array) -->
+<div *ngIf="searchTerm != ''" class="searchArr border-light shadow ">
+    <div (click)="searchTerm ='' " [routerLink]="['/gameDetails', game.id]"
+        *ngFor="let game of gamesArr|search:searchTerm let index = index"
+        class="pointer searchInner border-1 shadow-sm rounded d-flex  align-items-center m-2 text-white">
+        <span class="logoFont p-2">{{index+1}}</span>
+        <div class="w-25 rounded-2 shadow p-2">
+            <img [src]="game.thumbnail" class="w-100 rounded-2" alt="">
+        </div>
+        <div class="p-2">
+            <h6 class="fw-bold">{{game.title.split(" ").slice(0,2).join(" ")}}</h6>
+            <p class="font2Color">{{game.short_description.split(" ").slice(0,2).join(" ")}}...</p>
+        </div>
+        <div class="text-warning me-auto"> {{game.platform}}</div>
+    </div>
+</div>

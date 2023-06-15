@@ -1,0 +1,35 @@
+<!-- loading page -->
+<app-loading-page *ngIf="isLoading"></app-loading-page>
+<!-- categories container -->
+<div *ngIf="!isLoading" class="container fontColor pt-5">
+    <div class="row gy-3">
+        <!-- show details of game if user click  -->
+        <div [routerLink]="['/gameDetails', game.id]" class="col-md-3" *ngFor="let game of games.slice(0,moreGames)">
+            <!-- category content -->
+            <div class="allcontant">
+                <div class="rounded-3 pointer">
+                    <img class="w-100 rounded-3" [src]="game.thumbnail">
+                </div>
+                <div class="contant rounded-3 p-3">
+                    <div class="d-flex justify-content-between pb-2">
+                        <h5>{{game.title}}</h5>
+                        <a [href]="game.freetogame_profile_url "><button class="btn btn-primary">Free</button></a>
+                    </div>
+
+                    <p class="font2Color">{{game.short_description.split(" ").slice(0,8).join(" ")}}</p>
+                    <div class="d-flex justify-content-between">
+                        <span class="font2Color secBg text-end p-1 rounded-2 text-center "> {{game.platform}}</span>
+                        <span class="font2Color secBg text-end p-1 rounded-2 text-center">{{game.genre}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- more games btn -->
+    <div class="p-5">
+        <button (click)="moreGame()" class="btn btn-outline-primary  m-auto d-block">
+            More Games
+        </button>
+    </div>
+</div>
