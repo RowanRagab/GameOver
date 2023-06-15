@@ -29,7 +29,7 @@ export class ResetPassComponent {
 console.log(res);
       },
       error:(err)=>{
-        console.log(err.error.errors.msg);
+        console.log(err?.error?.errors.msg);
         this.errMsg= err?.error?.errors.msg;
         this.toastr.error(err?.error?.errors.msg, 'Oops !');
       }

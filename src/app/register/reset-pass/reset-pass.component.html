@@ -1,5 +1,5 @@
 <div class="content">
-    <img class="w-25 d-block m-auto" src="../../../assets/imgs/logo.png" alt="">
+    <img class="w-25 d-block m-auto" src="../../../assets/imgs/logo.png">
     <h3 class="font2Color text-center">Do You Need New Password ?</h3>
     <div class="alert-danger m-auto alert text-center" *ngIf="errMsg != '' ">{{errMsg}} </div>
     <form [formGroup]="resetForm" (submit)="resetPass(resetForm)" class="container">

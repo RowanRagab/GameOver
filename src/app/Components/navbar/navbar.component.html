@@ -21,7 +21,7 @@
 </nav>
 <!-- search menu (array) -->
 <div *ngIf="searchTerm != ''" class="searchArr border-light shadow ">
-    <div (click)="searchTerm ='' " [routerLink]="['/gameDetails', game.id]"
+    <div (click)="searchTerm ='';showError() " [routerLink]="['/gameDetails', game.id]"
         *ngFor="let game of gamesArr|search:searchTerm let index = index"
         class="pointer searchInner border-1 shadow-sm rounded d-flex  align-items-center m-2 text-white">
         <span class="logoFont p-2">{{index+1}}</span>
