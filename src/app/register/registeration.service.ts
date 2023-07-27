@@ -8,7 +8,7 @@ import {BehaviorSubject} from 'rxjs'
   providedIn: 'root'
 })
 export class RegisterationService {
-baseURL:string = 'https://route-ecommerce-app.vercel.app/';
+baseURL:string = 'https://ecommerce.routemisr.com/';
 alldata:any;
 nameOfUser:any ;
 userData=new BehaviorSubject(null);
@@ -43,6 +43,6 @@ this._Router.navigate(['/login'])
   }
 
   resetPass(resetForm:any ,token:string):Observable<any>{
-    return this._HttpClient.put('https://route-ecommerce.onrender.com/api/v1/users/changeMyPassword',resetForm ,{headers:{token}})
+    return this._HttpClient.put('https://ecommerce.routemisr.com/api/v1/users/changeMyPassword',resetForm ,{headers:{token}})
   }
 }

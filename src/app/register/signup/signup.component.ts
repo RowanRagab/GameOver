@@ -38,7 +38,7 @@ register(registerForm:FormGroup){
       if(res.message === 'success'){
         console.log(res);
         this.isLoading = false;
-this._Router.navigate(['register/login']);
+this._Router.navigate(['rigester/login']);
       }
     },
     error:(err)=>{
